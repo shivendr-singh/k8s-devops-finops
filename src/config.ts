@@ -8,10 +8,13 @@ function requireEnv(name: string): string {
   return value;
 }
 
-function parseNumber(name: string, fallback: number): number {
+function parseNumber(name: string, fallback?: number): number {
   const raw = process.env[name];
 
   if (!raw) {
+    if (fallback === undefined) {
+      throw new Error(`Missing required environment variable: ${name}`);
+    }
     return fallback;
   }
 
@@ -32,9 +35,9 @@ export const config = {
     database: requireEnv("DB_NAME"),
     user: requireEnv("DB_USER"),
     password: requireEnv("DB_PASSWORD"),
-    max: parseNumber("DB_POOL_MAX", 20),
-    idleTimeoutMillis: parseNumber("DB_POOL_IDLE_TIMEOUT_MS", 10000),
-    connectionTimeoutMillis: parseNumber("DB_POOL_CONNECTION_TIMEOUT_MS", 3000)
+    max: parseNumber("DB_POOL_MAX"),
+    idleTimeoutMillis: parseNumber("DB_POOL_IDLE_TIMEOUT_MS"),
+    connectionTimeoutMillis: parseNumber("DB_POOL_CONNECTION_TIMEOUT_MS")
   }
 };
 
