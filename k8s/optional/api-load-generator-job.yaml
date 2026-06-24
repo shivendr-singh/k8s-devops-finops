@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: records-api-load-generator
+  namespace: nagp-assignment
+spec:
+  parallelism: 4
+  completions: 4
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: load-generator
+          image: curlimages/curl:8.10.1
+          command:
+            - sh
+            - -c
+            - |
+              end=$((SECONDS + 180))
+              while [ "$SECONDS" -lt "$end" ]; do
+                curl -s http://records-api/api/records > /dev/null
+              done

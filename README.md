@@ -13,7 +13,7 @@ This repository contains a Node.js and TypeScript microservice backed by Postgre
 
 ## Deliverable Links
 
-- Repository URL: `<replace-with-your-git-repository-url>`
+- Repository URL: `https://github.com/shivendra1s/k8s-devops-finops`
 - Docker Hub URL: `https://hub.docker.com/r/shivendra1s/records-api`
 - Service API URL: `http://records.127.0.0.1.nip.io/api/records`
 - Assignment Documentation: [docs/solution-overview.md](docs/solution-overview.md)
