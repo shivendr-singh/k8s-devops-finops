@@ -119,7 +119,6 @@ This script:
 - Triggers HPA load and captures `kubectl top` plus HPA status
 - Writes a markdown proof report to `outputs/proof-report.md`
 
-If you are recording a screen capture, `-PauseBetweenSteps` gives you a clean checkpoint before each requirement proof.
 
 ## Manual Demonstration Guide
 
@@ -152,9 +151,4 @@ kubectl top pods -n nagp-assignment
 kubectl get hpa -n nagp-assignment -w
 ```
 
-## Notes Before Submission
 
-- Replace the repository URL placeholder.
-- Record the required screen capture after successful deployment.
-- If your cluster is not local, change the ingress host in `k8s/api-ingress.yaml` and update the service URL above.
-- `k8s/app-secret.template.yaml` is documentation only. The real secret is created by `scripts/deploy.ps1` or the manual `kubectl create secret` command.
